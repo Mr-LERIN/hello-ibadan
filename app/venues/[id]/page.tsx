@@ -62,8 +62,8 @@ export default async function VenueDetailPage({ params }: { params: { id: string
               >
                 <div className="flex items-center justify-between">
                   <p className="font-semibold">
-                    {(r.profiles as { display_name: string | null } | null)?.display_name ??
-                      'Anonymous'}
+                    {(r.profiles as any)?.[0]?.display_name ?? (r.profiles as any)?.display_name ?? 
+                    'Anonymous'}
                   </p>
                   <span className="text-sm font-semibold text-amber-500">
                     {'★'.repeat(r.rating)}
